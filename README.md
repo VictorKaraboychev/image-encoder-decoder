@@ -1,2 +1,2 @@
 # image-encoder-decoder
- Encoders data into images and decodes it
+ Encodes data into images and decodes it.
