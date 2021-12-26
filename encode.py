@@ -23,7 +23,7 @@ def stringToInt(string):
 # 72-135: 8 bytes denoting the file suffix
 # 136+: encoded data
 
-def encode(image, filedata, suffix, set_data_density):
+def encode(image, filedata, suffix, set_data_density, stripe):
     data = bytearray()
     data.append(set_data_density)
     data.extend(struct.pack('>Q', len(filedata)))
@@ -44,7 +44,7 @@ def encode(image, filedata, suffix, set_data_density):
 
             for o in range(data_density, -1, -1):
                 bit = getBit(modified_channel, o)
-                if (current_bit // 8 < len(data)):
+                if (current_bit // 8 < len(data) or stripe):
                     byte = data[current_bit // 8]     
                     if (isinstance(byte, str)): byte = ord(byte)
 

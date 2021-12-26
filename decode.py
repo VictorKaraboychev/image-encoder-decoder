@@ -40,7 +40,7 @@ def decode(image):
                     if (current_byte > 16 and current_byte <= (data_length + 16)): # reads data
                         data.append(accumulated_byte)
                     
-                    accumulated_byte = 0
+                    accumulated_byte = 0 
                     current_byte += 1
         if (current_byte > (data_length + 16)): break
     return [data, file_suffix]

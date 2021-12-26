@@ -56,6 +56,9 @@ encode_data_input = [
     [
         sg.Checkbox("Use Minimum Size", enable_events=True, key="-ENCODE-USE-MIN-")
     ],
+    [
+        sg.Checkbox("Stripe Data", enable_events=True, key="-ENCODE-USE-STRIPE-")
+    ],
     [   sg.Text(size=(1, 23))],
     [
         sg.Text("Output Folder"),
@@ -219,6 +222,10 @@ while True:
     
     if event == "-ENCODE-USE-MIN-":
         minify = values["-ENCODE-USE-MIN-"]
+        calc_output_dimensions()
+
+    if event == "-ENCODE-STRIPE-":
+        minify = values["-ENCODE-STRIPE-"]
         calc_output_dimensions()
 
     if event == "-ENCODE-OUTPUT-FOLDER-":
